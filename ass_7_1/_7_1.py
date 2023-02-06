@@ -3,4 +3,13 @@
 
 # Use words.txt as the file name
 fname = input("Enter file name: ")
-fh = open(fname)
+#fh = open(fname)
+
+try:
+    with open(fname, "r") as fh:
+        text = fh.read()
+        text = text.strip()
+        print(text.upper())
+    
+except FileNotFoundError:
+    print("Error: the file could not be found.") 
